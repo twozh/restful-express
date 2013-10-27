@@ -28,7 +28,7 @@ msgApp.controller('MsgListCtrl', ['$scope', '$http', function PhoneListCtrl($sco
     msg.message = inputMsg;
     msg.user_id = '525e9ef21b4275f211000003';
     $http.post('/msgs', msg).success(function(ret){
-      alert(ret.code);
+      //alert(ret.code);
       $scope.msg_list.unshift(ret.data);
     });
 
@@ -36,7 +36,7 @@ msgApp.controller('MsgListCtrl', ['$scope', '$http', function PhoneListCtrl($sco
 
   $scope.delMsg = function(msg){
     $http.delete('/msgs/' + msg._id).success(function(ret){
-      alert(ret.code);
+      //alert(ret.code);
       $scope.msg_list.delById(msg._id);
     });
   };
