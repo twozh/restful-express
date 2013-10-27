@@ -1,0 +1,32 @@
+<!doctype html>
+<html ng-app="msgApp">
+<head>
+	<meta charset="utf-8">
+	<title>My HTML File</title>
+	<link rel="stylesheet" href="stylesheets/style.css">
+	<link rel="stylesheet" href="dist-bootstrap-3.0.0/css/bootstrap.min.css">
+</head>
+
+<body class='container' ng-controller="MsgListCtrl">
+	<form name='msgForm'>
+		<div class="form-group" ng-class="{'has-error': msgForm.name.$invalid}">
+			<input name='name' class="form-control"  placeholder="Username" ng-model='inputMsg'
+			required>
+		</div>
+		<div class="form-group">
+	      <button class="btn btn-default"	ng-disabled='msgForm.$invalid'
+	      ng-click="sendMsg(inputMsg)">Send</button>
+	  </div>
+	</form>
+
+	<div ng-repeat="msg in msg_list">
+		<div class="row" ng-dblclick="delMsg(msg)">
+        <p>Msg: {{msg.message}}</p>
+        msg_id: {{msg._id}}
+    </div>
+    <br>
+  </div>
+	<script src="angular-1.2.0-rc.3/angular.js"></script>
+	<script src="javascripts/an-controllers.js"></script>
+</body>
+</html>
