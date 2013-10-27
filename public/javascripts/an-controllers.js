@@ -36,7 +36,7 @@ msgApp.controller('MsgListCtrl', ['$scope', '$http', function PhoneListCtrl($sco
 
   $scope.delMsg = function(msg){
     $http.delete('/msgs/' + msg._id).success(function(ret){
-      //alert(ret.code);
+      alert(ret.code);
       $scope.msg_list.delById(msg._id);
     });
   };
